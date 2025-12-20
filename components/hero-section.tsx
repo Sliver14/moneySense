@@ -23,19 +23,19 @@ export function HeroSection() {
       <div className="relative z-10 w-full mb-12 md:mb-0 md:static">
         
         {/* Shape */}
-        <div className="relative mx-auto w-fit md:absolute md:right-30 md:top-30 opacity-100">
+        <div className="relative mx-auto w-fit md:absolute md:right-30 md:top-36 opacity-100">
           <Image
             src="/Shape 1 copy.png"
             alt="pattern background"
-            width={300} // Smaller on mobile
-            height={300}
+            width={400} // Smaller on mobile
+            height={400}
             className="object-cover md:w-[500px]"
             priority
           />
         </div>
 
         {/* placeholder1 */}
-        <div className="absolute left-1/2 -translate-x-12 top-10 w-40 h-60 -rotate-6 rounded-xl border border-white md:left-auto md:translate-x-0 md:w-50 md:h-75 md:right-60 md:top-50 z-20">
+        <div className="absolute left-1/2 -translate-x-36 top-16 w-48 h-72 -rotate-6 rounded-xl border border-white md:left-auto md:translate-x-0 md:w-50 md:h-75 md:right-60 md:top-50 z-20">
           <Image
             src="/Field Staff Leave Management System _ Easy Leave Reporting.jpeg"
             alt="placeholder 1"
@@ -46,7 +46,7 @@ export function HeroSection() {
         </div>
 
         {/* placeholder2 */}
-        <div className="absolute left-1/2 translate-x-4 top-20 w-48 h-72 rotate-6 rounded-xl border border-white md:left-auto md:translate-x-0 md:w-[200px] md:h-[300px] md:right-20 md:top-70 z-10">
+        <div className="absolute left-1/2 -translate-x-08 top-26 w-40 h-68 rotate-6 rounded-xl border border-white md:left-auto md:translate-x-0 md:w-[200px] md:h-[300px] md:right-20 md:top-70 z-20">
           <Image
             src="/SASS CRM 2 – Sassico.jpeg"
             alt="placeholder 2"
@@ -58,7 +58,7 @@ export function HeroSection() {
       </div>
 
       {/* Main Content Area */}
-      <div className="relative z-20 w-full px-4 md:px-20 mt-38 md:mt-0">
+      <div className="relative z-20 w-full px-4 md:px-20 mt-20 md:mt-0">
         
         <h1 className="mb-6 text-balance text-3xl font-bold leading-none uppercase tracking-tight text-white md:text-5xl lg:text-6xl max-w-2xl">
           <span className="text-[#D9CBB5]">Take</span> Control of Your <span className="text-[#D9CBB5]">Money</span>, One Step at a Time
