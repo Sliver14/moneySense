@@ -1,20 +1,23 @@
 "use client"
+
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
-import { cn } from "@/lib/utils" // assuming you have this (common in shadcn)
+import { cn } from "@/lib/utils"
+import Image from "next/image"
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
+  // SINGLE source of truth
   const shouldShowWhiteBg = isScrolled || isMobileMenuOpen
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
+      setIsScrolled(window.scrollY > 40)
     }
-    window.addEventListener("scroll", handleScroll)
+    window.addEventListener("scroll", handleScroll, { passive: true })
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
@@ -29,19 +32,35 @@ export function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ${
+      className={cn(
+        "fixed inset-x-0 top-0 z-50 w-full transition-colors duration-300",
         shouldShowWhiteBg
           ? "bg-white/95 backdrop-blur shadow-sm"
           : "bg-transparent"
-      }`}
+      )}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-6 md:px-6 lg:px-8">
         {/* Logo */}
-        <a href="#home" className="flex items-center space-x-2">
+        <a href="#home" className="flex items-center gap-3">
+          <Image
+            src={
+              shouldShowWhiteBg
+                ? "/monesenselogo-dark.png"
+                : "/monesenselogo-white.png"
+            }
+            alt="MoneySense logo"
+            width={40}
+            height={40}
+            priority
+            className="transition-opacity duration-200"
+          />
+
+          {/* Text hidden on mobile */}
           <span
-            className={`text-2xl font-semibold transition-colors ${
+            className={cn(
+              "hidden md:inline text-2xl font-semibold transition-colors duration-200",
               shouldShowWhiteBg ? "text-[#0A1A2F]" : "text-white"
-            }`}
+            )}
           >
             MoneySense
           </span>
@@ -53,9 +72,10 @@ export function Header() {
             <a
               key={link.href}
               href={link.href}
-              className={`text-sm font-normal transition-colors hover:text-[#C99663] ${
+              className={cn(
+                "text-sm font-normal transition-colors duration-200 hover:text-[#C99663]",
                 shouldShowWhiteBg ? "text-[#0A1A2F]" : "text-white"
-              }`}
+              )}
             >
               {link.label}
             </a>
@@ -63,7 +83,7 @@ export function Header() {
         </nav>
 
         {/* Desktop CTA */}
-        <div className="hidden items-center space-x-4 md:flex">
+        <div className="hidden md:flex">
           <Button
             size="sm"
             className="rounded-full bg-[#D9CBB5] px-6 py-6 text-[#0A1A2F] transition-all hover:bg-[#C99663] hover:text-white"
@@ -75,9 +95,10 @@ export function Header() {
 
         {/* Mobile Menu Toggle */}
         <button
-          className={`md:hidden transition-colors ${
+          className={cn(
+            "md:hidden transition-colors duration-200",
             shouldShowWhiteBg ? "text-[#0A1A2F]" : "text-white"
-          }`}
+          )}
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle menu"
         >
@@ -89,13 +110,11 @@ export function Header() {
         </button>
       </div>
 
-      {/* Mobile Menu – Smooth Animation */}
+      {/* Mobile Menu */}
       <div
         className={cn(
-          "md:hidden overflow-hidden transition-all duration-500 ease-in-out",
-          isMobileMenuOpen
-            ? "max-h-96 opacity-100"
-            : "max-h-0 opacity-0"
+          "md:hidden overflow-hidden transition-all duration-300 ease-out",
+          isMobileMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
         )}
       >
         <div className="border-t border-gray-200 bg-white/95 backdrop-blur-lg">
@@ -110,9 +129,10 @@ export function Header() {
                 {link.label}
               </a>
             ))}
+
             <Button
               size="lg"
-              className="w-full rounded-full bg-[#D9CBB5] py-7 text-[#0A1A2F] text-lg font-medium hover:bg-[#C99663] hover:text-white"
+              className="w-full rounded-full bg-[#D9CBB5] py-7 text-lg font-medium text-[#0A1A2F] hover:bg-[#C99663] hover:text-white"
               asChild
             >
               <a href="#waitlist" onClick={closeMobileMenu}>

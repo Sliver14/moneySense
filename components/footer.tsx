@@ -15,7 +15,7 @@ export function Footer() {
               implementing them in real life.
             </p>
             <div className="flex gap-4">
-              <a
+              {/* <a
                 href="https://twitter.com"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -23,7 +23,7 @@ export function Footer() {
                 aria-label="Twitter"
               >
                 <Twitter className="h-5 w-5" />
-              </a>
+              </a> */}
               <a
                 href="https://instagram.com"
                 target="_blank"
@@ -33,7 +33,7 @@ export function Footer() {
               >
                 <Instagram className="h-5 w-5" />
               </a>
-              <a
+              {/* <a
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -41,7 +41,7 @@ export function Footer() {
                 aria-label="LinkedIn"
               >
                 <Linkedin className="h-5 w-5" />
-              </a>
+              </a> */}
               <a
                 href="mailto:hello@moneysense.com"
                 className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 transition-colors hover:bg-[#D9CBB5] hover:text-[#0A1A2F]"
