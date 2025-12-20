@@ -8,6 +8,9 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
+  // Header should be white if scrolled OR mobile menu is open
+  const shouldShowWhiteBg = isScrolled || isMobileMenuOpen
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50)
@@ -26,15 +29,21 @@ export function Header() {
   return (
     <header
       className={`fixed top-0 z-50 w-full transition-all duration-300 ${
-        isScrolled ? "bg-white shadow-sm" : "bg-transparent"
+        shouldShowWhiteBg
+          ? "bg-white/95 backdrop-blur shadow-sm"
+          : "bg-transparent"
       }`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-8 md:px-6 lg:px-8">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-6 md:px-6 lg:px-8">
         {/* Logo */}
         <a href="#home" className="flex items-center space-x-2">
-          <div className={`text-2xl font-semibold transition-colors ${isScrolled ? "text-[#0A1A2F]" : "text-white"}`}>
+          <span
+            className={`text-2xl font-semibold transition-colors ${
+              shouldShowWhiteBg ? "text-[#0A1A2F]" : "text-white"
+            }`}
+          >
             MoneySense
-          </div>
+          </span>
         </a>
 
         {/* Desktop Navigation */}
@@ -44,7 +53,7 @@ export function Header() {
               key={link.href}
               href={link.href}
               className={`text-sm font-normal transition-colors hover:text-[#C99663] ${
-                isScrolled ? "text-[#0A1A2F]" : "text-white"
+                shouldShowWhiteBg ? "text-[#0A1A2F]" : "text-white"
               }`}
             >
               {link.label}
@@ -52,28 +61,30 @@ export function Header() {
           ))}
         </nav>
 
-        {/* CTA Button */}
+        {/* Desktop CTA */}
         <div className="hidden items-center space-x-4 md:flex">
           <Button
             size="sm"
-            className={`transition-all px-6 py-6 rounded-full ${
-              isScrolled
-                ? "bg-[#D9CBB5] text-[#0A1A2F] hover:bg-[#C99663] hover:text-white"
-                : "bg-[#D9CBB5] text-[#0A1A2F] hover:bg-[#C99663] hover:text-[#0A1A2F]"
-            }`}
+            className="rounded-full bg-[#D9CBB5] px-6 py-6 text-[#0A1A2F] transition-all hover:bg-[#C99663] hover:text-white"
             asChild
           >
             <a href="#waitlist">Get Started</a>
           </Button>
         </div>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile Menu Toggle */}
         <button
-          className={`md:hidden ${isScrolled ? "text-[#0A1A2F]" : "text-white"}`}
+          className={`md:hidden transition-colors ${
+            shouldShowWhiteBg ? "text-[#0A1A2F]" : "text-white"
+          }`}
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle menu"
         >
-          {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          {isMobileMenuOpen ? (
+            <X className="h-10 w-10" />
+          ) : (
+            <Menu className="h-10 w-10" />
+          )}
         </button>
       </div>
 
@@ -85,15 +96,16 @@ export function Header() {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-[#0A1A2F] hover:text-[#C99663]"
+                className="text-sm font-medium text-[#0A1A2F] transition-colors hover:text-[#C99663]"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {link.label}
               </a>
             ))}
+
             <Button
               size="sm"
-              className="w-full bg-[#D9CBB5] text-[#0A1A2F] hover:bg-[#C99663] hover:text-white"
+              className="w-full rounded-full bg-[#D9CBB5] px-6 py-6 text-[#0A1A2F] hover:bg-[#C99663] hover:text-white"
               asChild
             >
               <a href="#waitlist" onClick={() => setIsMobileMenuOpen(false)}>
