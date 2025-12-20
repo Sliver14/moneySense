@@ -1,4 +1,5 @@
 import React from "react";
+import { FadeIn } from "./fade-in";
 
 const steps = [
   {
@@ -34,7 +35,7 @@ const steps = [
 export function HowItWorksSection() {
   return (
     <section id="how-it-works" className="bg-white px-4 py-20 md:py-28 font-sans">
-      <div className="mx-auto max-w-7xl">
+      <FadeIn className="mx-auto max-w-7xl">
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-[#0A1A2F] mb-4">How It Works</h2>
@@ -76,7 +77,7 @@ export function HowItWorksSection() {
             </div>
           ))}
         </div>
-      </div>
+      </FadeIn>
     </section>
   );
 }

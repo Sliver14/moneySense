@@ -1,4 +1,5 @@
 import { Check } from "lucide-react"
+import { FadeIn } from "./fade-in"
 
 const features = [
   {
@@ -22,7 +23,7 @@ const features = [
 export function SolutionSection() {
   return (
     <section id="features" className="px-4 py-20 bg-white font-sans">
-      <div className="mx-auto max-w-7xl">
+      <FadeIn className="mx-auto max-w-7xl">
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-[#0A1A2F]">
@@ -59,7 +60,7 @@ export function SolutionSection() {
             )
           })}
         </div>
-      </div>
+      </FadeIn>
     </section>
   )
 }

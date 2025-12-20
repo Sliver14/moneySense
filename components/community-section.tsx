@@ -1,4 +1,5 @@
 import { MessageSquare, Target, UsersRound } from "lucide-react"
+import { FadeIn } from "./fade-in"
 
 const benefits = [
   {
@@ -21,7 +22,7 @@ const benefits = [
 export function CommunitySection() {
   return (
     <section className="bg-white px-4 py-20 md:py-28">
-      <div className="mx-auto max-w-4xl">
+      <FadeIn className="mx-auto max-w-4xl">
         <h2 className="mb-4 text-balance text-center text-3xl font-bold text-[#0A1A2F] md:text-4xl">
           Community & Accountability
         </h2>
@@ -45,7 +46,7 @@ export function CommunitySection() {
             )
           })}
         </div>
-      </div>
+      </FadeIn>
     </section>
   )
 }

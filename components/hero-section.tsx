@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Sparkles } from "lucide-react"
 import Image from "next/image"
+import { FadeIn } from "./fade-in"
 
 export function HeroSection() {
   return (
@@ -58,7 +59,7 @@ export function HeroSection() {
       </div>
 
       {/* Main Content Area */}
-      <div className="relative z-20 w-full px-4 md:px-20 mt-20 md:mt-0">
+      <FadeIn className="relative z-20 w-full px-4 md:px-20 mt-20 md:mt-0">
         
         <h1 className="mb-6 text-balance text-3xl font-bold leading-none uppercase tracking-tight text-white md:text-5xl lg:text-6xl max-w-2xl">
           <span className="text-[#D9CBB5]">Take</span> Control of Your <span className="text-[#D9CBB5]">Money</span>, One Step at a Time
@@ -100,7 +101,7 @@ export function HeroSection() {
             <div className="mt-2 text-sm text-white/60">Action-Based Learning</div>
           </div>
         </div>
-      </div>
+      </FadeIn>
 
       {/* Background Arrow - Hidden on mobile to avoid clutter, visible on MD */}
       <div className="hidden md:block absolute -top-120 -left-170 z-0">

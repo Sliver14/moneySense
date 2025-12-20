@@ -1,4 +1,5 @@
 import { Shield, BookCheck, Sparkles } from "lucide-react"
+import { FadeIn } from "./fade-in"
 
 const credentials = [
   {
@@ -21,7 +22,7 @@ const credentials = [
 export function TrustSection() {
   return (
     <section className="bg-gray-50 px-4 py-20 md:py-28">
-      <div className="mx-auto max-w-4xl">
+      <FadeIn className="mx-auto max-w-4xl">
         <h2 className="mb-16 text-balance text-center text-3xl font-bold text-[#0A1A2F] md:text-4xl">
           Built on Solid Foundations
         </h2>
@@ -40,7 +41,7 @@ export function TrustSection() {
             )
           })}
         </div>
-      </div>
+      </FadeIn>
     </section>
   )
 }

@@ -1,6 +1,7 @@
 import { GraduationCap, Briefcase, Users2 } from "lucide-react"
 
 import React from "react";
+import { FadeIn } from "./fade-in";
 
 const audiences = [
   {
@@ -26,7 +27,7 @@ const audiences = [
 export function WhoItsForSection() {
   return (
     <section className="bg-[#0A1A2F] px-6 py-20 md:py-28 font-sans">
-      <div className="mx-auto max-w-7xl">
+      <FadeIn className="mx-auto max-w-7xl">
         {/* Header Section */}
         <div className="mb-16 text-left">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
@@ -87,7 +88,7 @@ export function WhoItsForSection() {
             Everything is explained from the ground up in plain language.
           </p>
         </div>
-      </div>
+      </FadeIn>
     </section>
   );
 }
