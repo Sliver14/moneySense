@@ -1,63 +1,82 @@
-import { BookOpen, PenTool, TrendingUp, Users } from "lucide-react"
+import React from "react";
 
 const steps = [
   {
-    icon: BookOpen,
-    number: "01",
-    title: "Learn",
-    description: "Short, simple lessons on essential money concepts",
+    title: "LEARN",
+    description: "SHORT, SIMPLE LESSONS ON ESSENTIAL MONEY CONCEPTS",
+    image: "/Free Trial.jpeg",
+    bgColor: "bg-[#C99663]", // Tan
+    textColor: "text-[#0A1A2F]"
   },
   {
-    icon: PenTool,
-    number: "02",
-    title: "Apply",
-    description: "Complete guided workbook exercises designed for action",
+    title: "APPLY",
+    description: "COMPLETE GUIDED WORKBOOK EXERCISES DESIGNED FOR ACTION",
+    image: "/download (23).jpeg",
+    bgColor: "bg-[#0A1A2F]", // Navy
+    textColor: "text-white"
   },
   {
-    icon: TrendingUp,
-    number: "03",
-    title: "Track",
-    description: "Monitor your progress and reflect on your financial journey",
+    title: "TRACK",
+    description: "COMPLETE GUIDED WORKBOOK EXERCISES DESIGNED FOR ACTION",
+    image: "/download (25).jpeg",
+    bgColor: "bg-[#D9CBB5]", // Beige
+    textColor: "text-[#0A1A2F]"
   },
   {
-    icon: Users,
-    number: "04",
-    title: "Stay Accountable",
-    description: "Join a community of learners supporting each other",
+    title: "STAY ACCOUNTABLE",
+    description: "MONITOR YOUR PROGRESS AND REFLECT ON YOUR FINANCIAL JOURNEY",
+    image: "/Digital Marketing & Business Growth.jpeg",
+    bgColor: "bg-[#0A1A2F]", // Navy
+    textColor: "text-white"
   },
-]
+];
 
 export function HowItWorksSection() {
   return (
-    <section id="how-it-works" className="bg-white px-4 py-20 md:py-28">
-      <div className="mx-auto max-w-6xl">
-        <h2 className="mb-4 text-balance text-center text-3xl font-bold text-[#0A1A2F] md:text-4xl">How It Works</h2>
-        <p className="mb-16 text-center text-muted-foreground md:text-lg">
-          A simple, structured approach to financial education
-        </p>
+    <section id="how-it-works" className="bg-white px-4 py-20 md:py-28 font-sans">
+      <div className="mx-auto max-w-7xl">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-[#0A1A2F] mb-4">How It Works</h2>
+          <p className="text-gray-600 text-lg">A simple, structured approach to financial education</p>
+        </div>
 
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-          {steps.map((step, index) => {
-            const Icon = step.icon
-            return (
-              <div key={index} className="relative text-center">
-                <div className="mb-6 flex justify-center">
-                  <div className="relative">
-                    <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-[#527967]/10 shadow-sm">
-                      <Icon className="h-8 w-8 text-[#527967]" />
-                    </div>
-                    <div className="absolute -right-3 -top-3 flex h-10 w-10 items-center justify-center rounded-full bg-[#C99663] text-sm font-bold text-white shadow-lg">
-                      {step.number}
-                    </div>
-                  </div>
-                </div>
-                <h3 className="mb-3 text-xl font-semibold text-[#0A1A2F]">{step.title}</h3>
-                <p className="text-sm leading-relaxed text-muted-foreground">{step.description}</p>
+        {/* Steps Grid */}
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {steps.map((step, index) => (
+            <div 
+              key={index} 
+              className={`relative flex flex-col overflow-hidden rounded-[45px] ${step.bgColor} h-[500px]`}
+            >
+              {/* Image Section */}
+              <div className="h-3/5 w-full p-3 pb-0">
+                 <div className="relative h-full w-full overflow-hidden rounded-[35px]">
+                    <img
+                      src={step.image}
+                      alt={step.title}
+                      className="h-[400px] w-full object-cover"
+                    />
+                 </div>
               </div>
-            )
-          })}
+
+              {/* The "Arrow" Notch (Speech Bubble effect) */}
+              <div className="relative flex justify-center h-6 overflow-hidden">
+                 <div className={`w-8 h-8 rotate-45 -mt-4 ${step.bgColor}`}></div>
+              </div>
+
+              {/* Text Section */}
+              <div className={`flex flex-col p-8 pt-2 ${step.textColor}`}>
+                <h3 className="text-2xl font-black mb-2 tracking-tight">
+                  {step.title}
+                </h3>
+                <p className="text-[11px] font-bold leading-tight opacity-90 uppercase tracking-wide">
+                  {step.description}
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
-  )
+  );
 }

@@ -29,10 +29,10 @@ export function Header() {
         isScrolled ? "bg-white shadow-sm" : "bg-transparent"
       }`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 md:px-6 lg:px-8">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-8 md:px-6 lg:px-8">
         {/* Logo */}
         <a href="#home" className="flex items-center space-x-2">
-          <div className={`text-2xl font-bold transition-colors ${isScrolled ? "text-[#0A1A2F]" : "text-white"}`}>
+          <div className={`text-2xl font-semibold transition-colors ${isScrolled ? "text-[#0A1A2F]" : "text-white"}`}>
             MoneySense
           </div>
         </a>
@@ -43,7 +43,7 @@ export function Header() {
             <a
               key={link.href}
               href={link.href}
-              className={`text-sm font-medium transition-colors hover:text-[#C99663] ${
+              className={`text-sm font-normal transition-colors hover:text-[#C99663] ${
                 isScrolled ? "text-[#0A1A2F]" : "text-white"
               }`}
             >
@@ -56,10 +56,10 @@ export function Header() {
         <div className="hidden items-center space-x-4 md:flex">
           <Button
             size="sm"
-            className={`transition-all ${
+            className={`transition-all px-6 py-6 rounded-full ${
               isScrolled
                 ? "bg-[#D9CBB5] text-[#0A1A2F] hover:bg-[#C99663] hover:text-white"
-                : "bg-[#D9CBB5] text-[#0A1A2F] hover:bg-white hover:text-[#0A1A2F]"
+                : "bg-[#D9CBB5] text-[#0A1A2F] hover:bg-[#C99663] hover:text-[#0A1A2F]"
             }`}
             asChild
           >

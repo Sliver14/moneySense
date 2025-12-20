@@ -24,7 +24,7 @@ export function ProblemSection() {
     <section className="bg-white px-4 py-20 md:py-28">
       <div className="mx-auto max-w-6xl">
         <h2 className="mb-4 text-balance text-center text-3xl font-bold text-[#0A1A2F] md:text-4xl">
-          You're Not Alone
+          You're Not <span className="text-[#C99663]">Alone</span>
         </h2>
         <p className="mb-12 text-center text-[#0A1A2F]/80 md:text-lg">
           Most young people feel the same way about money
