@@ -48,7 +48,7 @@ export function HeroSection() {
         {/* placeholder2 */}
         <div className="absolute left-1/2 -translate-x-08 top-26 w-40 h-68 rotate-6 rounded-xl border border-white md:left-auto md:translate-x-0 md:w-[200px] md:h-[300px] md:right-20 md:top-70 z-20">
           <Image
-            src="/SASS CRM 2 – Sassico.jpeg"
+            src="/SASS-CRM-2-assico.jpeg"
             alt="placeholder 2"
             fill
             className="object-cover rounded-xl"
