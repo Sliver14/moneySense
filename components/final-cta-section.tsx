@@ -2,23 +2,10 @@
 
 import type React from "react"
 
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { ArrowRight, CheckCircle2 } from "lucide-react"
+import { WaitlistForm } from "./waitlist-form"
 import { FadeIn } from "./fade-in"
 
 export function FinalCtaSection() {
-  const [name, setName] = useState("")
-  const [email, setEmail] = useState("")
-  const [submitted, setSubmitted] = useState(false)
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    console.log("[v0] Form submitted:", { name, email })
-    setSubmitted(true)
-  }
-
   return (
     <section id="waitlist" className="bg-[#F8F5F0] px-4 py-20 md:py-28">
       <FadeIn className="mx-auto max-w-2xl text-center">
@@ -29,44 +16,10 @@ export function FinalCtaSection() {
           Join the waitlist to get early access to the workbook and community
         </p>
 
-        {!submitted ? (
-          <form onSubmit={handleSubmit} className="mx-auto max-w-md space-y-4">
-            <Input
-              type="text"
-              placeholder="Your Name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              required
-              className="h-12 rounded-xl border-gray-200 bg-white"
-            />
-            <Input
-              type="email"
-              placeholder="Your Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-              className="h-12 rounded-xl border-gray-200 bg-white"
-            />
-            <Button
-              type="submit"
-              size="lg"
-              className="h-12 w-full px-6 py-6 rounded-full bg-[#D9CBB5] text-[#0A1A2F] hover:bg-[#C99663] hover:text-white"
-            >
-              Join the Waitlist
-            </Button>
-            <p className="text-sm text-muted-foreground">No spam. Just value.</p>
-          </form>
-        ) : (
-          <div className="rounded-2xl border-2 border-[#527967] bg-[#527967]/5 p-8">
-            <div className="mb-4 flex justify-center">
-              <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[#527967]/10">
-                <CheckCircle2 className="h-8 w-8 text-[#527967]" />
-              </div>
-            </div>
-            <h3 className="mb-2 text-xl font-semibold text-[#0A1A2F]">You're on the list!</h3>
-            <p className="text-muted-foreground">We'll send you an email when we launch. Talk soon!</p>
-          </div>
-        )}
+        <div className="mx-auto max-w-md">
+          <WaitlistForm />
+          <p className="mt-4 text-sm text-muted-foreground">No spam. Just value.</p>
+        </div>
       </FadeIn>
     </section>
   )

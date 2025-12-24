@@ -93,7 +93,7 @@ export function HeroSection() {
             <div className="mt-2 text-sm text-white/60">Young People Confused</div>
           </div>
           <div>
-            <div className="text-3xl font-bold text-[#C99663] md:text-4xl">$10B+</div>
+            <div className="text-3xl font-bold text-[#C99663] md:text-4xl">0B+</div>
             <div className="mt-2 text-sm text-white/60">Lost to Poor Decisions</div>
           </div>
           <div>
