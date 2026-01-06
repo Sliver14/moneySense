@@ -7,7 +7,7 @@ export function HeroSection() {
   return (
     <section
       id="home"
-      className="relative flex flex-col min-h-screen w-full items-center justify-center overflow-hidden px-4 py-28 md:py-40"
+      className="relative flex flex-col min-h-screen w-full items-center justify-center overflow-hidden px-4 py-20 md:py-40"
     >
       {/* Background Effects - Stays absolute */}
       <div className="absolute inset-0 z-0">
